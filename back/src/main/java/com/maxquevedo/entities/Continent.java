@@ -1,5 +1,6 @@
 package com.maxquevedo.entities;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.validation.constraints.NotNull;
@@ -14,7 +15,9 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="continents")
-public class Continent {
+public class Continent implements Serializable{
+
+	private static final long serialVersionUID = -8971377601362481954L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)

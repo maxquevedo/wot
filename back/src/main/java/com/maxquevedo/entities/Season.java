@@ -1,5 +1,6 @@
 package com.maxquevedo.entities;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.validation.constraints.Max;
@@ -16,10 +17,12 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="seasons")
-public class Season {
+public class Season implements Serializable{
 	
+	private static final long serialVersionUID = -215141266787758528L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
 	
 	@Size(min=6,max=6)

@@ -1,5 +1,6 @@
 package com.maxquevedo.entities;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.validation.constraints.NotNull;
@@ -14,8 +15,10 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="timezones")
-public class Timezone {
+public class Timezone implements Serializable{
 	
+	private static final long serialVersionUID = 7783067040780575719L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;

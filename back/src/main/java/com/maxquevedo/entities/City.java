@@ -1,5 +1,6 @@
 package com.maxquevedo.entities;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.validation.constraints.NotNull;
@@ -13,7 +14,9 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="cities")
-public class City {
+public class City implements Serializable{
+	
+	private static final long serialVersionUID = 1044974158474324157L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	@NotNull
