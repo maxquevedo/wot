@@ -20,8 +20,8 @@ public class Continent implements Serializable{
 	private static final long serialVersionUID = -8971377601362481954L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	@Size(min=3,max=60)
 	@Column(unique = true, nullable = false)
@@ -29,27 +29,27 @@ public class Continent implements Serializable{
 	private String name;
 	
 	@NotNull
-	private Season currentSeason;
+	private Long currentSeason_id;
 	
 	
 	public Continent() {
 	}
 
 
-	public Continent(UUID id, String name, Season currentSeason) {
+	public Continent(Long id, String name, Long currentSeason) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.currentSeason = currentSeason;
+		this.currentSeason_id = currentSeason;
 	}
 
 
-	public UUID getId() {
+	public Long getId() {
 		return id;
 	}
 
 
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -64,13 +64,13 @@ public class Continent implements Serializable{
 	}
 
 
-	public Season getCurrentSeason() {
-		return currentSeason;
+	public Long getCurrentSeason() {
+		return currentSeason_id;
 	}
 
 
-	public void setCurrentSeason(Season currentSeason) {
-		this.currentSeason = currentSeason;
+	public void setCurrentSeason(Long currentSeason) {
+		this.currentSeason_id = currentSeason;
 	}
 	
 	

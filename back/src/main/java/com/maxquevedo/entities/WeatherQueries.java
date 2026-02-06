@@ -1,12 +1,12 @@
 package com.maxquevedo.entities;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,8 +28,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class WeatherQueries {
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	@Size(max=100, min = 3)
 	@NotNull
@@ -37,11 +37,11 @@ public class WeatherQueries {
 	
 	@NotNull
 	@JoinColumn(name="country_id", referencedColumnName = "id")
-	private Country country;
+	private Long country_id;
 	
 	@NotNull
 	@JoinColumn(name="city_id", referencedColumnName = "id")
-	private City city;
+	private Long city_id;
 
 	@NotNull
 	@Column(name="gps_data")
@@ -53,6 +53,10 @@ public class WeatherQueries {
 	@CreationTimestamp
 	@Column(name="created_at", updatable = false)
 	private LocalDateTime createdAt;
+	
+	@UpdateTimestamp
+	@Column(name="updated_at")
+	private LocalDateTime updatedAt;
 	
 //	public WeatherQueries() {
 //		// 

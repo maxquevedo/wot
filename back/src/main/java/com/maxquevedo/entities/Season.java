@@ -1,7 +1,6 @@
 package com.maxquevedo.entities;
 
 import java.io.Serializable;
-import java.util.UUID;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -22,8 +21,8 @@ public class Season implements Serializable{
 	private static final long serialVersionUID = -215141266787758528L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	@Size(min=6,max=6)
 	@NotNull
@@ -42,7 +41,7 @@ public class Season implements Serializable{
 	}
 	
 	
-	public Season(UUID id, String name, Integer position) {
+	public Season(Long id, String name, Integer position) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -51,11 +50,11 @@ public class Season implements Serializable{
 
 
 
-	public UUID getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

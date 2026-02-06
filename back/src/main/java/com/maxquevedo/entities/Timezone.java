@@ -1,7 +1,6 @@
 package com.maxquevedo.entities;
 
 import java.io.Serializable;
-import java.util.UUID;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -20,8 +19,8 @@ public class Timezone implements Serializable{
 	private static final long serialVersionUID = 7783067040780575719L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	//ej +8
 	@Size(min=2, max=3)
@@ -29,22 +28,25 @@ public class Timezone implements Serializable{
 	@Column(nullable = false)
 	private String value;
 	
+	
+	
 	public Timezone() {
+		super();
 	}
 
-	
-	public Timezone(UUID id, String value) {
+
+	public Timezone(Long id, String value) {
 		super();
 		this.id = id;
 		this.value = value;
 	}
 
 
-	public UUID getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

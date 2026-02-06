@@ -20,8 +20,8 @@ public class Country implements Serializable {
 	private static final long serialVersionUID = 821132025083950064L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	@NotNull
 	@Size(min=3,max=60)
@@ -29,90 +29,85 @@ public class Country implements Serializable {
 	private String name;
 
 	@NotNull
-	private Continent continent;
+	private Long continent_id;
 	
 	@NotNull
-	private Timezone TimeZone;
+	private Long timeZone_id;
 	
 	@NotNull
-	private Season season;
+	private String code;
 	
-	
-	
-	public Country() {
-	}
+	@NotNull
+	private Long season_id;
 
-
-
-	public Country(UUID id, String name, Continent continent, Timezone timeZone, Season season) {
+	public Country(Long id, String name, Long continent_id, Long timeZone_id, String code, Long season_id) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.continent = continent;
-		TimeZone = timeZone;
-		this.season = season;
+		this.continent_id = continent_id;
+		this.timeZone_id = timeZone_id;
+		this.code = code;
+		this.season_id = season_id;
 	}
 
+	public Country() {
+		super();
+	}
 
-
-	public UUID getId() {
+	public Long getId() {
 		return id;
 	}
 
-
-
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-
-
 
 	public String getName() {
 		return name;
 	}
 
-
-
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
-
-	public Continent getContinent() {
-		return continent;
+	public Long getContinent_id() {
+		return continent_id;
 	}
 
-
-
-	public void setContinent(Continent continent) {
-		this.continent = continent;
+	public void setContinent_id(Long continent_id) {
+		this.continent_id = continent_id;
 	}
 
-
-
-	public Timezone getTimeZone() {
-		return TimeZone;
+	public Long getTimeZone_id() {
+		return timeZone_id;
 	}
 
-
-
-	public void setTimeZone(Timezone timeZone) {
-		TimeZone = timeZone;
+	public void setTimeZone_id(Long timeZone_id) {
+		this.timeZone_id = timeZone_id;
 	}
 
-
-
-	public Season getSeason() {
-		return season;
+	public String getCode() {
+		return code;
 	}
 
+	public void setCode(String code) {
+		this.code = code;
+	}
 
+	public Long getSeason_id() {
+		return season_id;
+	}
 
-	public void setSeason(Season season) {
-		this.season = season;
+	public void setSeason_id(Long season_id) {
+		this.season_id = season_id;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 	
-
 }
+	
+	
+	
